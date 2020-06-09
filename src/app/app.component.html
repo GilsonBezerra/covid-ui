@@ -3,10 +3,8 @@
     <div class="ui-g-12">
         <h1>{{ tituloCasos }}</h1>
 
-        {{ dados.confirmados.total }}
 
-
-        <!-- <p-table [responsive]="true">
+        <p-table [value]="dados" [responsive]="true">
             <ng-template pTemplate="header">
                 <tr>
                     <th>Total</th>
@@ -19,17 +17,15 @@
 
             </ng-template>
 
-            <ng-template pTemplate="body">
-                <div *ngIf="qualquer">
-                    <tr>
-                        <td>{{ dados.confirmados.total }}</td>
-                        <td>{{ dados.confirmados.novos }}</td>
-                        <td>{{ dados.confirmados.incidencia }}</td>
-                        <td>{{ dados.confirmados.recuperados }}</td>
-                        <td>{{ dados.confirmados.acompanhamento }}</td>
-                        <td>{{ dados.confirmados.percent }}</td>
-                    </tr>
-                </div>
+            <ng-template pTemplate="body" let-c>
+                <tr>
+                    <td>{{ c.confirmados.total }}</td>
+                    <td>{{ c.confirmados.novos }}</td>
+                    <td>{{ c.confirmados.incidencia }}</td>
+                    <td>{{ c.confirmados.recuperados }}</td>
+                    <td>{{ c.confirmados.acompanhamento }}</td>
+                    <td>{{ c.confirmados.percent }}</td>
+                </tr>
 
             </ng-template>
 
@@ -37,7 +33,7 @@
 
         <h1>{{ tituloObitos }}</h1>
 
-        <p-table [responsive]="true">
+        <p-table [value]="dados " [responsive]="true">
             <ng-template pTemplate="header">
                 <tr>
                     <th>Total</th>
@@ -51,32 +47,21 @@
 
             </ng-template>
 
-            <ng-template pTemplate="body">
+            <ng-template pTemplate="body" let-o>
 
                 <tr>
-                    <td>{{ dados.obitos.total }}</td>
-                    <td>{{ dados.obitos.novos }}</td>
-                    <td>{{ dados.obitos.incidencia }}</td>
-                    <td>{{ dados.obitos.letalidade }}</td>
-                    <td>{{ dados.obitos.mortalidade }}</td>
-                    <td>{{ dados.obitos.percent }}</td>
+                    <td>{{ o.obitos.total }}</td>
+                    <td>{{ o.obitos.novos }}</td>
+                    <td>{{ o.obitos.incidencia }}</td>
+                    <td>{{ o.obitos.letalidade }}</td>
+                    <td>{{ o.obitos.mortalidade }}</td>
+                    <td>{{ o.obitos.percent }}</td>
                 </tr>
 
 
             </ng-template>
 
-        </p-table> -->
-
-        <ul>
-            <li>
-                {{dados.confirmados.total}}
-            </li>
-            <li>
-                {{dados.confirmados.novos}}
-            </li>
-        </ul>
-
-
+        </p-table>
         <div class="ui-g">
             <div class="ui-g-12">
                 <button pButton type="button" label="Atualizar" (click)="atualizar()"></button>

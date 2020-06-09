@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { CovidService } from './covid.service';
 import { Dados } from './dados.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   tituloCasos = 'Casos';
   tituloObitos = 'Óbitos';
 
-  public dados: Dados;
-  
-  public qualquer: boolean = false;
+  public dados: Array<any>;
   
   constructor(private covidService: CovidService) {
   } 
+
+  
   
   ngOnInit() {
     console.log(this.dados);
@@ -25,17 +26,9 @@ export class AppComponent implements OnInit{
   }
 
   public buscarDados() {
-
     this.covidService.getDados()
-      .subscribe(dados => {
-        console.log(dados);
-        this.dados.confirmados.total = dados.confirmados.total;
-
-        setTimeout(() => {
-          this.qualquer = true;
-          
-        }, 1000);
-      });
+      .subscribe(dados => this.dados = dados
+      );
   }
 
   public atualizar() {

@@ -17,7 +17,8 @@ export class CovidService {
   
 
   public getDados() {
-    return this.http.get<any>(`${this.covidURL}`);
+    return this.http.get<Dados[]>(`${this.covidURL}`);
+
   }
 
 

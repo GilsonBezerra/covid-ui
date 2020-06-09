@@ -1,26 +1,26 @@
 export class Confirmados {
-    total: String = '';
-    titulo: String = '';
-    novos: Number;
-    incidencia: String;
-    recuperados: Number;
-    acompanhamento: String;
-    percent: String;
+    total: string = '';
+    titulo: string = '';
+    novos: number;
+    incidencia: string;
+    recuperados: number;
+    acompanhamento: string;
+    percent: string;
 }
 
 export class Obitos {
-    total: String;
-    titulo: String;
-    novos: Number;
-    incidencia: String;
-    letalidade: String;
-    mortalidade: String;
-    percent: String;
+    total: string;
+    titulo: string;
+    novos: number;
+    incidencia: string;
+    letalidade: string;
+    mortalidade: string;
+    percent: string;
 
 }
 
 export class Dados {
-    confirmados: Confirmados;
-    obitos: Obitos;
+    confirmados: Confirmados[];
+    obitos: Obitos[];
 
 }
